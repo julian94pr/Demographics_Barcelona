@@ -1,0 +1,14 @@
+install.packages("tidyverse")
+
+
+
+library(tidyverse)
+
+Demographics_Data <- read_csv("Barcelona_Demographics.csv")
+
+
+tidy_data <- Demographics_Data %>%
+pivot_longer(c(`2000`,`2001`,`2002`,`2003`,`2004`,`2005`,`2006`,`2007`,`2008`,`2009`,`2010`,`2011`,`2012`,`2013`,`2014`,`2015`,`2016`,`2017`,`2018`,`2019`), names_to = "year", values_to = "population")
+
+
+write.csv(tidy_data,"~/Desktop/R EXERCISI\\tidy_data.csv", row.names = FALSE)
